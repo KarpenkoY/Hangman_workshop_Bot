@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace Hangman_workshop_Bot.Models
 {
@@ -111,7 +111,6 @@ namespace Hangman_workshop_Bot.Models
             EndGame();
             return $"{answer}\nYou win, the man is still alive!";
         }
-
 
         internal void EndGame()
         {

@@ -1,7 +1,7 @@
-﻿using Hangman_workshop_Bot.Models.Commands;
+﻿using System.Net;
 using System.Collections.Generic;
-using System.Net;
 using Telegram.Bot;
+using Hangman_workshop_Bot.Models.Commands;
 
 namespace Hangman_workshop_Bot.Models
 {
@@ -21,10 +21,13 @@ namespace Hangman_workshop_Bot.Models
             (
                 new Command[]
                 {
-                    new StartCommand(),
+                    new PlayShortCommand(),
                     new PlayCommand(),
+                    new LetterShortCommand(),
                     new LetterCommand(),
-                    new WordCommand()
+                    new WordShortCommand(),
+                    new WordCommand(),
+                    new HelpCommand()
                 }
             );
 
@@ -37,7 +40,7 @@ namespace Hangman_workshop_Bot.Models
         internal static void SetWebhook()
         {
             WebRequest request = WebRequest.Create($"https://api.telegram.org/bot{BotSettings.Key}/setWebhook?url={BotSettings.Url}/api/bot");
-            WebResponse response = request.GetResponse();
+            request.GetResponse();
             
         }
     }

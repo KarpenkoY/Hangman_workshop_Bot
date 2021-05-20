@@ -17,15 +17,14 @@ namespace Hangman_workshop_Bot.Models.Commands
         }
         internal string PrepareAnswer(Message message)
         {
+            string[] input = message.Text.Split(" ");
+
             Game game = Game.GetGame(message.Chat.Id);
 
-            string[] temp = message.Text.Split(" ");
-
-            if (temp.Length == 2 && temp[1].Length == 1)
+            if (input.Length == 2 && input[1].Length == 1)
             {
-                game.Attempt(temp[1].ToLower().FirstOrDefault());
+                game.Attempt(input[1].ToLower().FirstOrDefault());
             }
-
 
             string answer = game.ProcessedWord;
 

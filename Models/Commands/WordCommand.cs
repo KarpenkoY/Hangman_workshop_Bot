@@ -8,14 +8,13 @@ namespace Hangman_workshop_Bot.Models.Commands
 {
     public class WordCommand : Command
     {
-        public override string Name => "/w";
+        public override string Name => "/word";
 
         public override async Task Execute(Message message, TelegramBotClient client)
         {
-            long chatId = message.Chat.Id;
-            Game game = Game.GetGame(message.Chat.Id);
-
-            string answer = default;
+            long chatId         = message.Chat.Id;
+            Game game           = Game.GetGame(message.Chat.Id);
+            string answer       = default;
             string imagePath;
 
             if (!game.GuessWholeWord(message.Text))

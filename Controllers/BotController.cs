@@ -1,7 +1,8 @@
-﻿using Hangman_workshop_Bot.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using Telegram.Bot.Types;
+using Hangman_workshop_Bot.Models;
+
 namespace Workshop.HangmanDemo.Api.Controllers
 {
     [Route("api/bot")]

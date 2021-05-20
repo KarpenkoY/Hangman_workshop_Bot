@@ -8,17 +8,15 @@ namespace Hangman_workshop_Bot.Models.Commands
 {
     public class LetterCommand : Command
     {
-        public override string Name => "/l";
+        public override string Name => "/letter";
 
         public override async Task Execute(Message message, TelegramBotClient client)
         {
-            long chatId = message.Chat.Id;
-
-            string answer = PrepareAnswer(message);
-            Game game = Game.GetGame(message.Chat.Id);
-
-            int imageIndex = game.NotGuessedCharacters.Count;
-            string imagePath = Game.Images[imageIndex];
+            long chatId         = message.Chat.Id;
+            string answer       = PrepareAnswer(message);
+            Game game           = Game.GetGame(message.Chat.Id);
+            int imageIndex      = game.NotGuessedCharacters.Count;
+            string imagePath    = Game.Images[imageIndex];
 
             if (game.IsLose())
             {

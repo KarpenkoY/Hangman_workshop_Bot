@@ -12,13 +12,12 @@ namespace Hangman_workshop_Bot.Models.Commands
 
         public override async Task Execute(Message message, TelegramBotClient client)
         {
-            long chatId = message.Chat.Id;
-            Game game = Game.GetGame(message.Chat.Id);
-            int imageIndex = game.NotGuessedCharacters.Count;
-            string imagePath = Game.Images[imageIndex];
-
-            string answer = $"Lets begin!\n" +
-                            $"{game.ProcessedWord}";
+            long chatId         = message.Chat.Id;
+            Game game           = Game.GetGame(message.Chat.Id);
+            int imageIndex      = game.NotGuessedCharacters.Count;
+            string imagePath    = Game.Images[imageIndex];
+            string answer       = $"Lets begin! Behind the word lies a professional, who implements the rules of the game\n" +
+                                    $"{game.ProcessedWord}";
 
             using (var fileStream = new FileStream(imagePath, FileMode.Open, FileAccess.Read, FileShare.Read))
             {
